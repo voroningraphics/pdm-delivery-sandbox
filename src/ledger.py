@@ -23,3 +23,14 @@ def category_totals(entries):
             continue
         result[category] = result.get(category, 0) + entry["cents"]
     return result
+
+
+def category_counts(entries):
+    """Count entries by normalized category without changing input."""
+    result = {}
+    for entry in entries:
+        category = entry["category"].strip().lower()
+        if not category:
+            continue
+        result[category] = result.get(category, 0) + 1
+    return result
